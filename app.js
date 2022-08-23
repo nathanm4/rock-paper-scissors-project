@@ -34,9 +34,19 @@ const computerSelection = getComputerChoice();
 console.log(playGame(playerSelection, computerSelection));*/
 
 
-function game() {
+rock.addEventListener('click', () => {
+    return 'rock';
+}
 
-        let choice = prompt("Choose rock, paper, or scissors");
+
+
+
+
+function game() {
+        alert("Welcome!");
+        alert("Let's play rock paper scissor!");
+        let computerChoice = getComputerChoice();
+        let choice =
         playGame(choice);
         alert(playGame(choice, getComputerChoice()));
 }
