@@ -1,10 +1,30 @@
 
 
+// const rockButton = document.getElementById("rock");
+// const paperButton = document.querySelector("#paper");
+// const scissorsButton = document.querySelector("#scissors");
 const rock = 'rock';
 const paper = 'paper';
 const scissors = 'scissors';
 
+//function that will return player choice
 
+function game(event) {
+    // Exit, if not a button was clicked
+    if (event.target.tagName !== "BUTTON") {
+        return;
+    }
+    const playerSelection = event.target.id;
+    const computerSelection = getComputerChoice();
+    playGame(playerSelection,computerSelection);
+    alert(playGame(playerSelection, getComputerChoice()));
+}
+
+document.getElementById('button-container').addEventListener("click", game);
+
+// rockButton.addEventListener("click", game);
+// paperButton.addEventListener("click", game);
+// scissorsButton.addEventListener("click", game);
 
 
 
@@ -36,21 +56,24 @@ const computerSelection = getComputerChoice();
 console.log(playGame(playerSelection, computerSelection));*/
 
 
-rock.addEventListener('click', () => {
-    return 'rock';
-}
 
 
 
 
 
-function game() {
-        alert("Welcome!");
-        alert("Let's play rock paper scissor!");
-        let computerChoice = getComputerChoice();
-        let choice =
-        playGame(choice);
-        alert(playGame(choice, getComputerChoice()));
-}
 
-game();
+// function game() {
+//         alert("Welcome!");
+//         alert("Let's play rock paper scissor!");
+//         let computerChoice = getComputerChoice();
+//         let playerChoice = playerChoice();
+//         playGame(playerChoice);
+//         alert(playGame(playerChoice, getComputerChoice()));
+// }
+
+
+
+
+
+
+// game();
