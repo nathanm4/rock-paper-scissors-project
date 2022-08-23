@@ -1,3 +1,11 @@
+
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+
+
 function getComputerChoice() {
     let choices = ['rock', 'paper', 'scissors'];
     return choices[Math.floor(Math.random() * choices.length)];
@@ -31,7 +39,6 @@ function game() {
         let choice = prompt("Choose rock, paper, or scissors");
         playGame(choice);
         alert(playGame(choice, getComputerChoice()));
-
 }
 
 game();
