@@ -27,11 +27,11 @@ console.log(playGame(playerSelection, computerSelection));*/
 
 
 function game() {
-    for (let i = 0; i < 5; i++) {
+
         let choice = prompt("Choose rock, paper, or scissors");
         playGame(choice);
         alert(playGame(choice, getComputerChoice()));
-    }
+
 }
 
 game();
