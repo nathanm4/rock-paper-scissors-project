@@ -50,6 +50,33 @@ function playGame(playerSelection, computerSelection) {
 
 }
 
+const btn2 = document.getElementById('paper');
+btn2.innerText = 'Paper';
+
+
+btn2.addEventListener('click', () => {
+    btn2.style.backgroundColor = 'lightPink';
+});
+
+
+const btn = document.getElementById('rock');
+btn.innerText = 'Rock';
+
+
+btn.addEventListener('click', () => {
+    btn.style.backgroundColor = 'lightBlue';
+});
+
+const btn3 = document.getElementById('scissors');
+btn3.innerText = 'Scissors';
+
+btn3.addEventListener('click', () => {
+    btn3.style.backgroundColor = 'lightGreen';
+})
+
+
+
+
 /* testing function
 const playerSelection = "rock";
 const computerSelection = getComputerChoice();
