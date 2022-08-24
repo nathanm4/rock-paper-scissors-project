@@ -1,0 +1,28 @@
+/*.btn3 {*/
+/*    height: 4rem;*/
+/*    width: 4rem;*/
+/*    border: none;*/
+/*    outline: none;*/
+/*    background: grey;*/
+/*}*/
+
+/*.btn3:active {*/
+/*    animation-name: btn3flash;*/
+/*    animation-duration: 3.5s; !* Change to make slower/faster *!*/
+/*}*/
+
+/*@keyframes btn3flash {*/
+/*    from {*/
+/*        color: white;*/
+/*        outline: 1px solid white;*/
+/*        background: lightgreen;*/
+/*        outline-offset: 0;*/
+/*    }*/
+
+/*    to {*/
+/*        color: black;*/
+/*        outline: 1px solid transparent;*/
+/*        background: grey;*/
+/*        outline-offset: -4px;*/
+/*    }*/
+/*}*/

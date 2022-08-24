@@ -1,106 +1,56 @@
+let playerScore = 0
+let computerScore = 0
+const buttons = document.querySelectorAll('input')
 
+function computerPlay() {
+    let choices = ['rock', 'paper', 'scissors']
+    return choices[Math.floor(Math.random() * choices.length)]
+}
 
-// const rockButton = document.getElementById("rock");
-// const paperButton = document.querySelector("#paper");
-// const scissorsButton = document.querySelector("#scissors");
-const rock = 'rock';
-const paper = 'paper';
-const scissors = 'scissors';
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
+}
 
-//function that will return player choice
+function playRound(playerSelection) {
+    let computerSelection = computerPlay()
+    let result = ""
 
-function game(event) {
-    // Exit, if not a button was clicked
-    if (event.target.tagName !== "BUTTON") {
-        return;
+    if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+        (playerSelection == 'scissors' && computerSelection == 'paper') ||
+        (playerSelection == 'paper' && computerSelection == 'rock')) {
+
+        playerScore += 1
+        result = ('You win! ' + playerSelection + ' beats ' + computerSelection
+            + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
+
+        if (playerScore == 5) {
+            result += '<br><br>You won the game! Reload the page to play again'
+            disableButtons()
+        }
     }
-    const playerSelection = event.target.id;
-    const computerSelection = getComputerChoice();
-    playGame(playerSelection,computerSelection);
-    alert(playGame(playerSelection, getComputerChoice()));
-}
+    else if (playerSelection == computerSelection) {
+        result = ('It\'s a tie. You both chose ' + playerSelection
+            + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
+    }
+    else {
+        computerScore += 1
+        result = ('You lose! ' + computerSelection + ' beats ' + playerSelection
+            + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
 
-document.getElementById('button-container').addEventListener("click", game);
-
-// rockButton.addEventListener("click", game);
-// paperButton.addEventListener("click", game);
-// scissorsButton.addEventListener("click", game);
-
-
-
-function getComputerChoice() {
-    let choices = ['rock', 'paper', 'scissors'];
-    return choices[Math.floor(Math.random() * choices.length)];
-}
-
-// console.log(getComputerChoice()); test output in console
-
-function playGame(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        return `it's a tie, both players picked ${playerSelection} and you picked ${playerSelection}`
-    } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        return `you lost, other player picked ${computerSelection} and you picked ${playerSelection}`
-    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        return `you lost, other player picked ${computerSelection} and you picked ${playerSelection}`
-    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        return `you lost, other player picked ${computerSelection} and you picked ${playerSelection}`
-    } else {
-        return `you win, you picked ${playerSelection} and opponent picked ${computerSelection}`
+        if (computerScore == 5) {
+            result += '<br><br>I won the game! Reload the page to play again'
+            disableButtons()
+        }
     }
 
+    document.getElementById('result').innerHTML = result
+    return
 }
 
-const btn2 = document.getElementById('paper');
-btn2.innerText = 'Paper';
-
-
-btn2.addEventListener('click', () => {
-    btn2.style.backgroundColor = 'lightPink';
-});
-
-
-const btn = document.getElementById('rock');
-btn.innerText = 'Rock';
-
-
-btn.addEventListener('click', () => {
-    btn.style.backgroundColor = 'lightBlue';
-});
-
-const btn3 = document.getElementById('scissors');
-btn3.innerText = 'Scissors';
-
-btn3.addEventListener('click', () => {
-    btn3.style.backgroundColor = 'lightGreen';
+buttons.forEach(button =>{
+    button.addEventListener('click', function(){
+        playRound(button.value)
+    })
 })
-
-
-
-
-/* testing function
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playGame(playerSelection, computerSelection));*/
-
-
-
-
-
-
-
-
-// function game() {
-//         alert("Welcome!");
-//         alert("Let's play rock paper scissor!");
-//         let computerChoice = getComputerChoice();
-//         let playerChoice = playerChoice();
-//         playGame(playerChoice);
-//         alert(playGame(playerChoice, getComputerChoice()));
-// }
-
-
-
-
-
-
-// game();
