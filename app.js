@@ -39,7 +39,11 @@ function game(event) {
 document.getElementById('button-container').addEventListener("click", game);
 
 
-
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
+}
 
 
 // console.log(getComputerChoice()); test output in console
@@ -67,7 +71,7 @@ function playGame(playerSelection, computerSelection) {
 
 
 
-
+let buttons = document.querySelectorAll()
 
 
 
