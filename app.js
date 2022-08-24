@@ -8,11 +8,13 @@ const paper = 'paper';
 const scissors = 'scissors';
 
 //function that will return player choice
-
+let p1 = document.createElement('p');
+let p2 = document.createElement('p');
+let result = '';
 let playerScore = 0;
 let computerScore = 0;
 console.log( 'starting score:  ' + playerScore  + ' ' + computerScore);
-let result;
+
 
 
 function game(event) {
@@ -21,7 +23,10 @@ function game(event) {
         return;
     }
     const playerSelection = event.target.id;
-    alert(playGame(playerSelection, getComputerChoice()));
+    p2.style.color = 'red';
+    p2.textContent = `${result}`;
+    document.querySelector('#results').appendChild(p2);
+    playGame(playerSelection, getComputerChoice());
     //debug
     console.log(playerScore  + ' ' + computerScore);
     p1.textContent = `you: ${playerScore}   computer: ${computerScore}`;
@@ -36,6 +41,7 @@ function game(event) {
         computerScore = 0;
         playerScore = 0;
         alert('You lose');
+    disableButtons();
     }
 }
 document.getElementById('button-container').addEventListener("click", game);
@@ -48,8 +54,6 @@ function disableButtons() {
 }
 
 
-let p1 = document.createElement('p');
-
 
 
 
@@ -57,16 +61,16 @@ let p1 = document.createElement('p');
 
 function playGame(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        return `it's a tie, both players picked ${playerSelection} and you picked ${playerSelection}`
+        result = `it's a tie, both players picked ${playerSelection} and you picked ${playerSelection}`
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
         computerScore++;
-        return `you lost, other player picked ${computerSelection} and you picked ${playerSelection}`
+        result = `you lost, other player picked ${computerSelection} and you picked ${playerSelection}`
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
         computerScore++;
-        return `you lost, other player picked ${computerSelection} and you picked ${playerSelection}`
+        result = `you lost, other player picked ${computerSelection} and you picked ${playerSelection}`
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
         computerScore++;
-        return `you lost, other player picked ${computerSelection} and you picked ${playerSelection}`
+        result = `you lost, other player picked ${computerSelection} and you picked ${playerSelection}${playerSelection}`
     } else {
         playerScore++;
         return `you win, you picked ${playerSelection} and opponent picked ${computerSelection}`
