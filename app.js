@@ -24,7 +24,9 @@ function game(event) {
     alert(playGame(playerSelection, getComputerChoice()));
     //debug
     console.log(playerScore  + ' ' + computerScore);
-
+    p1.textContent = `you: ${playerScore}   computer: ${computerScore}`;
+    p1.style.cssText = "color: lightBlue";
+    document.querySelector('#results').appendChild(p1);
     if (playerScore === 5) {
         computerScore = 0;
         playerScore = 0;
@@ -44,6 +46,11 @@ function disableButtons() {
         elem.disabled = true
     })
 }
+
+
+let p1 = document.createElement('p');
+
+
 
 
 // console.log(getComputerChoice()); test output in console
@@ -71,7 +78,7 @@ function playGame(playerSelection, computerSelection) {
 
 
 
-let buttons = document.querySelectorAll()
+const buttons = document.querySelectorAll('input');
 
 
 
