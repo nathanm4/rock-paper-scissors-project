@@ -11,7 +11,8 @@ const scissors = 'scissors';
 
 function game(event) {
     // Exit, if not a button was clicked
-    if (event.target.tagName !== "BUTTON") {
+
+    if (event.target.tagName !== "BUTTON" && event.target.tagName !== "INPUT") {
         return;
     }
     const playerSelection = event.target.id;
@@ -22,16 +23,9 @@ function game(event) {
 
 document.getElementById('button-container').addEventListener("click", game);
 
-// rockButton.addEventListener("click", game);
-// paperButton.addEventListener("click", game);
-// scissorsButton.addEventListener("click", game);
 
 
 
-function getComputerChoice() {
-    let choices = ['rock', 'paper', 'scissors'];
-    return choices[Math.floor(Math.random() * choices.length)];
-}
 
 // console.log(getComputerChoice()); test output in console
 
@@ -50,6 +44,23 @@ function playGame(playerSelection, computerSelection) {
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+function getComputerChoice() {
+    let choices = ['rock', 'paper', 'scissors'];
+    return choices[Math.floor(Math.random() * choices.length)];
+}
+//buttons
 const btn2 = document.getElementById('paper');
 btn2.innerText = 'Paper';
 
