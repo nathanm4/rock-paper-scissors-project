@@ -9,18 +9,33 @@ const scissors = 'scissors';
 
 //function that will return player choice
 
+let playerScore = 0;
+let computerScore = 0;
+console.log( 'starting score:  ' + playerScore  + ' ' + computerScore);
+let result;
+
+
 function game(event) {
     // Exit, if not a button was clicked
-
     if (event.target.tagName !== "BUTTON" && event.target.tagName !== "INPUT") {
         return;
     }
     const playerSelection = event.target.id;
-    const computerSelection = getComputerChoice();
-    playGame(playerSelection,computerSelection);
     alert(playGame(playerSelection, getComputerChoice()));
-}
+    //debug
+    console.log(playerScore  + ' ' + computerScore);
 
+    if (playerScore === 5) {
+        computerScore = 0;
+        playerScore = 0;
+         alert('You win!');
+    }
+    if (computerScore === 5) {
+        computerScore = 0;
+        playerScore = 0;
+        alert('You lose');
+    }
+}
 document.getElementById('button-container').addEventListener("click", game);
 
 
@@ -33,15 +48,18 @@ function playGame(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return `it's a tie, both players picked ${playerSelection} and you picked ${playerSelection}`
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+        computerScore++;
         return `you lost, other player picked ${computerSelection} and you picked ${playerSelection}`
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+        computerScore++;
         return `you lost, other player picked ${computerSelection} and you picked ${playerSelection}`
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+        computerScore++;
         return `you lost, other player picked ${computerSelection} and you picked ${playerSelection}`
     } else {
+        playerScore++;
         return `you win, you picked ${playerSelection} and opponent picked ${computerSelection}`
     }
-
 }
 
 
